@@ -131,3 +131,5 @@ class projectile:
             if self.x >= 1000:
                 self.x = position_x
                 self.shootstate = False
+
+#this is currently not working smoothly and still needs work

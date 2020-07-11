@@ -9,9 +9,9 @@ class player():
         self.walkcount = 0
         self.left = False
         self.right = False
-        self.walkright = [pg.image.load('game/R1.png'), pg.image.load('game/R2.png'), pg.image.load('game/R3.png'), pg.image.load('game/R4.png'), pg.image.load('game/R5.png'), pg.image.load('game/R6.png'), pg.image.load('game/R7.png'), pg.image.load('game/R8.png'), pg.image.load('game/R9.png')]
-        self.walkleft = [pg.image.load('game/L1.png'), pg.image.load('game/L2.png'), pg.image.load('game/L3.png'), pg.image.load('game/L4.png'), pg.image.load('game/L5.png'), pg.image.load('game/L6.png'), pg.image.load('game/L7.png'), pg.image.load('game/L8.png'), pg.image.load('game/L9.png')]
-        self.char = pg.image.load('game/standing.png')
+        self.walkright = [pg.image.load('game again/game/R1.png'), pg.image.load('game again/game/R2.png'), pg.image.load('game again/game/R3.png'), pg.image.load('game again/game/R4.png'), pg.image.load('game again/game/R5.png'), pg.image.load('game again/game/R6.png'), pg.image.load('game again/game/R7.png'), pg.image.load('game again/game/R8.png'), pg.image.load('game again/game/R9.png')]
+        self.walkleft = [pg.image.load('game again/game/L1.png'), pg.image.load('game again/game/L2.png'), pg.image.load('game again/game/L3.png'), pg.image.load('game again/game/L4.png'), pg.image.load('game again/game/L5.png'), pg.image.load('game again/game/L6.png'), pg.image.load('game again/game/L7.png'), pg.image.load('game again/game/L8.png'), pg.image.load('game again/game/L9.png')]
+        self.char = pg.image.load('game again/game/standing.png')
         self.bigchar = pg.transform.scale(self.char, (100,100))
         self.direction = 0
 
@@ -61,7 +61,7 @@ class player():
 
 
     #the code to tell which direction is the player pointing towards
-    def direction(self):
+    def check_direction(self):
         if self.left == True:
             self.direction = "left"
 
@@ -89,3 +89,45 @@ class images():
             window.blit(self.smallimage, (self.x, self.y))
 
 
+class projectile:
+    def __init__(self, velocity, image, direction, position_x, position_y, size_x, size_y, window):
+        self.velocity = velocity
+        self.image = pg.image.load(image)
+        self.x = position_x
+        self.y = position_y
+        self.shootstate = False
+        self.direction = direction
+        self.sx = size_x
+        self.sy = size_y
+        self.window = window
+
+    def draw(self):
+        if self.sx == 0 and self.sy == 0:
+            self.window.blit(self.image, (self.x, self.y))
+
+        else:
+            self.newimage = pg.transform.scale(self.image, (size_x, size_y))
+            self.window.blit(self.newimage, (self.x, self.y))
+
+    def shoot(self):
+        #code to make the character shoot projectile
+        keys = pg.key.get_pressed()
+
+        if keys[pg.K_f]:
+            self.shootstate = True
+
+        if self.shootstate == True and self.direction == "left":
+            self.x -= self.velocity
+            self.draw()
+
+            if self.x <= 0:
+                self.x = position_x
+                self.shootstate = False
+
+        if self.direction == "right":
+            self.x += self.velocity
+            self.draw()
+
+            if self.x >= 1000:
+                self.x = position_x
+                self.shootstate = False

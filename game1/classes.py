@@ -9,9 +9,9 @@ class player():
         self.walkcount = 0
         self.left = False
         self.right = False
-        self.walkright = [pg.image.load('game again/game/R1.png'), pg.image.load('game again/game/R2.png'), pg.image.load('game again/game/R3.png'), pg.image.load('game again/game/R4.png'), pg.image.load('game again/game/R5.png'), pg.image.load('game again/game/R6.png'), pg.image.load('game again/game/R7.png'), pg.image.load('game again/game/R8.png'), pg.image.load('game again/game/R9.png')]
-        self.walkleft = [pg.image.load('game again/game/L1.png'), pg.image.load('game again/game/L2.png'), pg.image.load('game again/game/L3.png'), pg.image.load('game again/game/L4.png'), pg.image.load('game again/game/L5.png'), pg.image.load('game again/game/L6.png'), pg.image.load('game again/game/L7.png'), pg.image.load('game again/game/L8.png'), pg.image.load('game again/game/L9.png')]
-        self.char = pg.image.load('game again/game/standing.png')
+        self.walkright = [pg.image.load('game/R1.png'), pg.image.load('game/R2.png'), pg.image.load('game/R3.png'), pg.image.load('game/R4.png'), pg.image.load('game/R5.png'), pg.image.load('game/R6.png'), pg.image.load('game/R7.png'), pg.image.load('game/R8.png'), pg.image.load('game/R9.png')]
+        self.walkleft = [pg.image.load('game/L1.png'), pg.image.load('game/L2.png'), pg.image.load('game/L3.png'), pg.image.load('game/L4.png'), pg.image.load('game/L5.png'), pg.image.load('game/L6.png'), pg.image.load('game/L7.png'), pg.image.load('game/L8.png'), pg.image.load('game/L9.png')]
+        self.char = pg.image.load('game/standing.png')
         self.bigchar = pg.transform.scale(self.char, (100,100))
         self.direction = 0
 

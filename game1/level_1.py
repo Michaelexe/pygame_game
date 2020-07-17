@@ -10,9 +10,9 @@ window = pg.display.set_mode((1000,400))
 pg.display.set_caption("Level_1")
 
 #making necessary objects such as the player
-bg = images("game again/bglv1.jpg", 0, 0, 1000, 400)
+bg = images("bglv1.jpg", 0, 0, 1000, 400)
 our_character = player(5, 100, 300)
-char_projectile = projectile(10, "game again/fireball.png", our_character.direction, our_character.x, our_character.y, 60, 60, window)
+char_projectile = projectile(10, "fireball.png", our_character.direction, our_character.x, our_character.y, 60, 60, window)
 
 #game loop
 run = True
